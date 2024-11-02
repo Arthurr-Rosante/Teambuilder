@@ -1,6 +1,7 @@
 import { User as UserModel } from "../models/UserModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import getUserPfp from "../utils/getUserPfp.js";
 
 const UserController = {
   register: async (req, res) => {
@@ -11,7 +12,9 @@ const UserController = {
       if (user)
         return res.status(400).json({ msg: "Este email já foi cadastrado." });
 
-      user = new UserModel({ name, email, password });
+      const pfp = getUserPfp(name);
+
+      user = new UserModel({ name, email, password, pfp });
       user.password = await bcrypt.hash(password, 10);
 
       await user.save();

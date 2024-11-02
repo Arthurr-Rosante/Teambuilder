@@ -22,6 +22,10 @@ const userSchema = new Schema(
       type: [teamSchema],
       default: [],
     },
+    pfp: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );

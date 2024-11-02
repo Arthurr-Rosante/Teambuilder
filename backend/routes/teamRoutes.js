@@ -4,14 +4,22 @@ import TeamController from "../controllers/TeamController.js";
 const router = express.Router();
 
 // GET all Teams ---------------------------------------------------------------
-// /api/users/:id/teams
+router.get("/users/:id/teams", (req, res) => TeamController.getAll(req, res));
 // GET a Specific Team ---------------------------------------------------------
-// /api/users/:id/teams/:teamId
+router.get("/users/:id/teams/:teamId", (req, res) => {
+  TeamController.getOne(req, res);
+});
 // POST create new Team --------------------------------------------------------
-// /api/users/:id/teams
+router.post("/users/:id/teams", (req, res) => {
+  TeamController.create(req, res);
+});
 // DELETE specific Team --------------------------------------------------------
-// /api/users/:id/teams/:teamId
+router.delete("/users/:id/teams/:teamId", (req, res) => {
+  TeamController.delete(req, res);
+});
 // PUT specific Team -----------------------------------------------------------
-// /api/users/:id/teams/:teamId
+router.put("/users/:id/teams/:teamId", (req, res) => {
+  TeamController.update(req, res);
+});
 
 export default router;
