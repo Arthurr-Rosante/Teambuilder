@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react'
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 import PokeCard from './PokeCard.jsx';
+import axios from 'axios'
 
 function InfiniteScroll() {
+    const [nameOrId, setNameOrId] = useState("");
     const [content, setContent] = useState(null);
 
     const limit = 20;
@@ -55,14 +57,60 @@ function InfiniteScroll() {
         }
     }, [data]);
 
+    const handleSearch = () => {
+        if (!nameOrId) {
+            // Se o campo de pesquisa estiver vazio, exibe todos os Pokémon
+            setContent(
+                data?.pages.map((page) =>
+                    page.map((entry, idx) => {
+                        return <PokeCard key={idx} entry={entry} />;
+                    })
+                ) || null
+            );
+        } else {
+            const entry = {
+                name: nameOrId,
+                url: `https://pokeapi.co/api/v2/pokemon/${nameOrId}`,
+            };
+            setContent(<PokeCard entry={entry} />);
+        }
+        refetch();
+    };
+
+    const handleReset = () => {
+        setNameOrId("");
+        // Reseta o conteúdo para todos os Pokémon ao redefinir
+        setContent(
+            data?.pages.map((page) =>
+                page.map((entry, idx) => {
+                    return <PokeCard key={idx} entry={entry} />;
+                })
+            ) || null
+        );
+    };
+
     if (status === "pending") return <p id="loading"></p>;
     if (status === "error") return <p id="error">Error: {error.message}</p>;
 
     return (
-        <>
-            {content}
-            {isFetchingNextPage && <div id="loading"></div>}
-        </>
+        <div id="pokedex">
+            <div className="search-container">
+                <p>Busque por <b>Nome</b> ou <b>Id</b></p>
+                <input
+                    type="text"
+                    id="inSearch"
+                    value={nameOrId}
+                    onChange={(e) => setNameOrId(e.target.value)} />
+                <button onClick={handleSearch}><i className='bx bx-search-alt'></i></button>
+                <button type="reset" onClick={handleReset}>
+                    Redefinir
+                </button>
+            </div>
+            <div id="results">
+                {content}
+                {isFetchingNextPage && <div id="loading"></div>}
+            </div>
+        </div>
     )
 }
 
