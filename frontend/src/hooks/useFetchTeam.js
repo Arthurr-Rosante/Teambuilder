@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const useFetchPokemon = (params) => {
-  const [entries, setEntries] = useState(null);
+const useFetchTeam = (members) => {
+  const [members, setMembers] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -21,7 +21,7 @@ const useFetchPokemon = (params) => {
     fetchPokemon();
   }, [params]);
 
-  return { entries, error, loading };
+  return { members, error, loading };
 };
 
-export default useFetchPokemon;
+export default useFetchTeam;
