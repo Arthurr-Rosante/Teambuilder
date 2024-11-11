@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useInView } from "react-intersection-observer";
 import PokeCard from "./PokeCard.jsx";
-import axios from "axios";
 import PropTypes from "prop-types";
+import axios from "axios";
+import '../styles/pokecard.css'
 
 function InfiniteScroll({ btn }) {
   const [nameOrId, setNameOrId] = useState("");
@@ -95,10 +96,9 @@ function InfiniteScroll({ btn }) {
 
   return (
     <div id="pokedex">
+      <h1>monte seu time!</h1>
+      <p>Busque por <b>Nome</b> ou <b>Id</b></p>
       <div className="search-container">
-        <p>
-          Busque por <b>Nome</b> ou <b>Id</b>
-        </p>
         <input
           type="text"
           id="inSearch"
@@ -108,23 +108,24 @@ function InfiniteScroll({ btn }) {
         <button onClick={handleSearch}>
           <i className="bx bx-search-alt"></i>
         </button>
-        <button type="reset" onClick={handleReset}>
-          Redefinir
-        </button>
       </div>
+      <button type="reset" onClick={handleReset}>
+        Redefinir
+      </button>
       <div id="results">
         {content}
         {btn && (
           <button
             onClick={fetchNextPage}
-            disabled={isFetchingNextPage && hasNextPage ? true : false}
+            disabled={isFetchingNextPage}
           >
-            Carregar mais
+            {isFetchingNextPage ? (
+              <i className='bx bx-loader-alt'></i>
+            ) : "Carregar mais"}
           </button>
         )}
-        {isFetchingNextPage && <div id="loading"></div>}
       </div>
-    </div>
+    </div >
   );
 }
 

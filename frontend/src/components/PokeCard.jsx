@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 
 import PropTypes from "prop-types";
 import { EntryPropType } from "../types.js";
+import '../styles/pokecard.css'
 
 function PokeCard({ innerRef, entry }) {
   const [pokemon, setPokemon] = useState(null);

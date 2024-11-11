@@ -12,14 +12,17 @@ function UserMenu({ user, logout }) {
           <h2>Olá, {name ? name : "Treinador"}!</h2>
           <img src={`./${pfp}`} alt={name + " profile"} className="user-pfp" />
           <button onClick={logout} className="btn-logout">
-            Logout
+            <span>Logout</span>
+            <i className='bx bx-exit'></i>
           </button>
         </div>
         <div className="user-teams">
           <h2>Seus times</h2>
-          {teams.map((team, idx) => (
-            <TeamPreview key={idx} team={team} />
-          ))}
+          <div className="user-teams-container">
+            {teams.map((team, idx) => (
+              <TeamPreview key={idx} team={team} />
+            ))}
+          </div>
         </div>
       </div>
     );
