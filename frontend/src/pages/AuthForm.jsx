@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useUser } from '../contexts/UserContext';
+
 function AuthForm() {
     const { register, login, loading, error } = useUser();
 
@@ -52,76 +53,91 @@ function AuthForm() {
     }
 
     return (
-        <div className='auth-forms'>
-            <form onSubmit={handleRegister} id="register">
-                <h1>Criar Conta</h1>
-                <p>
-                    Por favor forneça as credenciais abaixo para que possamos
-                    cadastrar seu usuário.
-                </p>
-                <label htmlFor="name">Name:</label>
-                <input
-                    onChange={onChangeRegister}
-                    type="text"
-                    name='name'
-                    value={name}
-                    placeholder='(Campo opcional)'
-                    autoFocus />
-                <label htmlFor="name">Email:</label>
-                <input
-                    onChange={onChangeRegister}
-                    type="email"
-                    name='email'
-                    value={register_email}
-                    required />
-                <label htmlFor="name">Senha:</label>
-                <span>
-                    <input
-                        onChange={onChangeRegister}
-                        type={pswrdType}
-                        name='password'
-                        value={register_password}
-                        required />
-                    <i
-                        onClick={handleShowPswrd}
-                        className={`bx bxs-${pswrdType === "password" ? "show" : "hide"}`}></i>
-                </span>
-                <button type="submit" disabled={pending}>Cadastrar-se</button>
-                {registerError && <div id='error'>{registerError}</div>}
-            </form>
-            <form onSubmit={handleLogin} id="login">
-                <h1>Já está cadastrado?</h1>
-                <p>
-                    Por favor forneça as credenciais abaixo para que possamos
-                    buscar seu usuário.
-                </p>
-                <label htmlFor="name">Email:</label>
-                <input
-                    type="email"
-                    name='email'
-                    value={login_email}
-                    onChange={onChangeLogin}
-                    required />
-                <label htmlFor="name">Senha:</label>
-                <span>
-                    <input
-                        type="password"
-                        name='password'
-                        value={login_password}
-                        onChange={onChangeLogin}
-                        required />
-                    <i
-                        onClick={handleShowPswrd}
-                        className={`bx bxs-${pswrdType === "password" ? "show" : "hide"}`}></i>
-                </span>
-                <button type="submit">Logar-se</button>
-                {loginError && <div id='error'>{loginError}</div>}
-            </form>
-            {success && (<div id='success'>
-                Operação realizada com sucesso! Redirecionando....
-            </div>)
-            }
+        <div className="auth-forms">
+    
+    <form onSubmit={handleRegister} id="register" className="auth-form">
+        <h1 className="auth-form__header">Criar Conta</h1>
+        <p className="auth-form__description">
+            Por favor forneça as credenciais abaixo para que possamos cadastrar seu usuário.
+        </p>
+        <label htmlFor="name" className="auth-form__label">Nome:</label>
+        <input
+            onChange={onChangeRegister}
+            type="text"
+            name="name"
+            value={name}
+            placeholder="(Campo opcional)"
+            autoFocus
+            className="auth-form__input"
+        />
+        <label htmlFor="email" className="auth-form__label">Email:</label>
+        <input
+            onChange={onChangeRegister}
+            type="email"
+            name="email"
+            value={register_email}
+            required
+            className="auth-form__input"
+        />
+        <label htmlFor="password" class="auth-form__label">Senha:</label>
+        <span className="auth-form__password">
+            <input
+                onChange={onChangeRegister}
+                type={pswrdType}
+                name="password"
+                value={register_password}
+                required
+                className="auth-form__input"
+            />
+            <i
+                onClick={handleShowPswrd}
+                className={`bx bxs-${pswrdType === "password" ? "show" : "hide"}`}
+            ></i>
+        </span>
+        <button type="submit" disabled={pending} className="auth-form__button">Cadastrar-se</button>
+        {registerError && <div className="auth-form__error">{registerError}</div>}
+    </form>
+
+    
+    <form onSubmit={handleLogin} id="login" className="auth-form">
+        <h1 className="auth-form__header">Já está cadastrado?</h1>
+        <p className="auth-form__description">
+            Por favor forneça as credenciais abaixo para que possamos buscar seu usuário.
+        </p>
+        <label htmlFor="email" className="auth-form__label">Email:</label>
+        <input
+            type="email"
+            name="email"
+            value={login_email}
+            onChange={onChangeLogin}
+            required
+            className="auth-form__input"
+        />
+        <label htmlFor="password" className="auth-form__label">Senha:</label>
+        <span className="auth-form__password">
+            <input
+                type="password"
+                name="password"
+                value={login_password}
+                onChange={onChangeLogin}
+                required
+                className="auth-form__input"
+            />
+            <i
+                onClick={handleShowPswrd}
+                className={`bx bxs-${pswrdType === "password" ? "show" : "hide"}`}
+            ></i>
+        </span>
+        <button type="submit" className="auth-form__button">Logar-se</button>
+        {loginError && <div>{loginError}</div>}
+    </form>
+
+    {success && (
+        <div >
+            Operação realizada com sucesso! Redirecionando....
         </div>
+    )}
+</div>
     )
 }
 
