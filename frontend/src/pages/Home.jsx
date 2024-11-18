@@ -1,7 +1,7 @@
 import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth.js";
 import UserMenu from "../components/UserMenu.jsx";
-import InfiniteScroll from "../components/InfiniteScroll.jsx";
 import "../styles/home.css";
 
 function Home() {
@@ -11,7 +11,7 @@ function Home() {
     if (user) {
       document.title = `TeamBuilder | ${user.name}`;
     }
-
+    
     return () => {
       document.title = "TeamBuilder";
     };
@@ -29,7 +29,7 @@ function Home() {
     <div className="home">
       <header>{user && <UserMenu user={user} logout={logout} />}</header>
       <main>
-        <InfiniteScroll btn={true} />
+        <Outlet />
       </main>
     </div>
   );

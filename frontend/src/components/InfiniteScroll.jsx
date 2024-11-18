@@ -4,7 +4,9 @@ import { useInView } from "react-intersection-observer";
 import PokeCard from "./PokeCard.jsx";
 import PropTypes from "prop-types";
 import axios from "axios";
+import pkmData from '../data/pokemon.json'
 import '../styles/pokecard.css'
+
 
 function InfiniteScroll({ btn }) {
   const [nameOrId, setNameOrId] = useState("");
@@ -96,7 +98,7 @@ function InfiniteScroll({ btn }) {
 
   return (
     <div id="pokedex">
-      <h1>monte seu time!</h1>
+      <h1>pokédex</h1>
       <p>Busque por <b>Nome</b> ou <b>Id</b></p>
       <div className="search-container">
         <input
