@@ -1,10 +1,13 @@
-import TeamPreview from "./TeamPreview.jsx";
-import PropTypes from "prop-types";
-import { UserPropTypes } from "../types.js";
 import { NavLink } from 'react-router-dom'
+import { useUser } from '../contexts/UserContext.jsx';
+import TeamPreview from "./TeamPreview.jsx";
 
-function UserMenu({ user, logout }) {
-  
+
+function UserMenu() {
+  const { user, logout } = useUser();
+
+  if (!user) return <div>carregando informações....</div>
+
   if (user) {
     const { name, pfp, teams } = user;
 
@@ -43,10 +46,5 @@ function UserMenu({ user, logout }) {
     );
   }
 }
-
-// UserMenu.propTypes = {
-//   user: UserPropTypes.isRequired,
-//   logout: PropTypes.func,
-// };
 
 export default UserMenu;

@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import setAuthToken from '../utils/setAuthToken.js';
-
+import { useUser } from '../contexts/UserContext';
 function AuthForm() {
-    const navigate = useNavigate();
+    const { register, login, loading, error } = useUser();
+
     const [registerError, setRegisterError] = useState(null);
     const [loginError, setLoginError] = useState(null);
     const [success, setSuccess] = useState(false);
@@ -25,25 +23,7 @@ function AuthForm() {
     const handleRegister = async (e) => {
         e.preventDefault();
         const newUser = { name, email: register_email, password: register_password };
-
-        try {
-            setPending(true)
-            const res = await axios.post("http://localhost:5000/api/auth/register", newUser);
-
-            setRegisterError(null)
-            setSuccess(true)
-
-            setTimeout(() => {
-                localStorage.setItem('token', res.data.token);
-                setAuthToken(res.data.token)
-                navigate("/home")
-            }, 1000)
-        } catch (error) {
-            setRegisterError(error.message)
-        } finally {
-            setPending(false)
-        }
-
+        register(name, register_email, register_password);
     }
     // Log User ----------------------------------------------------------------
     const [loginData, setLoginData] = useState({
@@ -60,21 +40,7 @@ function AuthForm() {
         e.preventDefault();
         const user = { email: login_email, password: login_password };
 
-        try {
-            setPending(true);
-
-            const res = await axios.post("http://localhost:5000/api/auth/login", user);
-            const token = res.data.token
-
-            localStorage.setItem("token", token)
-            setAuthToken(token)
-            setLoginError(null)
-            navigate("/home")
-        } catch (error) {
-            setLoginError(error.message)
-        } finally {
-            setPending(false)
-        }
+        login(login_email, login_password)
     }
     // -------------------------------------------------------------------------
 
