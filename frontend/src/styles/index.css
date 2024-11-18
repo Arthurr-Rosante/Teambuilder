@@ -18,7 +18,8 @@
   --clr-grey: rgb(150, 150, 150);
   --clr-grey_: rgb(36, 36, 36);
   --clr-red: rgb(189, 55, 54);
-  --clr-light-blue: rgba(208, 220, 230, 0.87);
+  --clr-light-blue: rgb(208, 220, 230);
+  --clr-green: rgb(70, 186, 105);
 }
 
 * {
