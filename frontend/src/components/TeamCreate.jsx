@@ -13,7 +13,7 @@ import usePokemonSearch from "../hooks/usePokemonSearch.js";
 import itemsData from "../data/items.json";
 
 function TeamCreate() {
-    const { setUser } = useUser();
+    const { user, setUser } = useUser();
     const navigate = useNavigate();
 
     const { searchTerm, setSearchTerm, searchResults } = usePokemonSearch();
@@ -78,17 +78,20 @@ function TeamCreate() {
         if (!validateTeam(teamMembers)) return;
 
         try {
-            const { data: updatedUser } = await axios.get("http://localhost:5000/api/auth/user");
             const team = {
-                name: teamName || `${updatedUser.name}-Team-${updatedUser.teams.length}`,
-                user_OT: updatedUser._id,
+                name: teamName || `${user.name}-Team-${user.teams.length}`,
+                user_OT: user._id,
                 members: teamMembers.map(({ name, ability, item, is_shiny, moves }) => ({
                     name, ability, item, is_shiny, moves,
                 })),
             };
 
-            await axios.post(`http://localhost:5000/api/users/${updatedUser._id}/teams`, team);
-            setUser(updatedUser)
+            await axios.post(`http://localhost:5000/api/users/${user._id}/teams`, team);
+
+            setUser(updatedUser => ({
+                ...updatedUser,
+                teams: [...updatedUser.teams, team]
+            }));
 
             navigate('/home');
             console.log("Time criado:", team);

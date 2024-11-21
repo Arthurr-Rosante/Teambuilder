@@ -16,10 +16,10 @@ function Home() {
     return () => {
       document.title = "TeamBuilder";
     };
-  }, []);
+  }, [user]);
 
-  if (loading) return <div id="loading">Carregando...</div>;
-  if (error) return <div>Erro: {error}</div>;
+  if (loading) return <div id="loading"></div>;
+  if (error) return <div id="error">Erro: {error}</div>;
 
   return (
     <div className="home">
