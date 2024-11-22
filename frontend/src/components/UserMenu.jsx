@@ -16,17 +16,17 @@ function UserMenu() {
         <h2>Olá, {name ? name : "Treinador"}!</h2>
         <img src={`/${pfp}`} alt={name + " profile"} className="user-pfp" />
         <div className="user-controllers">
-          <button className="btn-create-team">
-            <NavLink to={'/home/teams/create'} >
+          <NavLink to={'/home/teams/create'} >
+            <button className="btn-create-team">
               <span>Criar Time</span>
               <i className="bx bx-plus"></i>
-            </NavLink>
-          </button>
-          <button className="btn-return-home">
-            <NavLink to={'/home'}>
+            </button>
+          </NavLink>
+          <NavLink to={'/home'}>
+            <button className="btn-return-home">
               <i className="bx bxs-home"></i>
-            </NavLink>
-          </button>
+            </button>
+          </NavLink>
           <button onClick={logout} className="btn-logout">
             <span>Logout</span>
             <i className='bx bx-exit'></i>
@@ -36,12 +36,14 @@ function UserMenu() {
       <div className="user-teams">
         <h2>Seus times</h2>
         <div className="user-teams-container">
-          {teams ? (
+          {teams.length > 0 ? (
             teams.map((team, idx) => (
               <TeamPreview key={idx} team={team} />
             ))
           ) : (
-            <p>Você ainda não possui times cadastrados.</p>
+            <span className='user-teams-warning'>
+              Hmmm... parece que você ainda não cadastrou nenhum time
+            </span>
           )}
         </div>
       </div>

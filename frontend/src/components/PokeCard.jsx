@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import fetchData from "../utils/fetchData.js";
 import { NavLink } from "react-router-dom";
+import fetchData from "../utils/fetchData.js";
 
-import PropTypes from "prop-types";
 import { EntryPropType } from "../types.js";
+import PropTypes from 'prop-types'
 import '../styles/pokecard.css'
 
 function PokeCard({ innerRef, entry }) {

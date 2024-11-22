@@ -1,15 +1,20 @@
 const validateTeam = (teamMembers) => {
   const errors = [];
+
+  if (teamMembers.length === 0) {
+    errors.push("⚠️ O Time deve possuír no mínimo 1 membro ⚠️");
+  }
+
   for (let [idx, member] of teamMembers.entries()) {
     if (!member.ability) {
-      errors.push(`O ${idx + 1}° Membro não possuí nenhuma Habilidade.`);
+      errors.push(`⚠️ O ${idx + 1}° Membro não possuí nenhuma Habilidade ⚠️`);
     }
     if (member.moves.length === 0) {
-      errors.push(`O ${idx + 1}° Membro não possuí nenhum Move.`);
+      errors.push(`⚠️ O ${idx + 1}° Membro não possuí nenhum Move ⚠️`);
     }
     const uniqueMoves = new Set(member.moves);
     if (uniqueMoves.size !== member.moves.length) {
-      errors.push(`O ${idx + 1}° Membro possuí Moves duplicados.`);
+      errors.push(`⚠️ O ${idx + 1}° Membro possuí Moves duplicados ⚠️`);
     }
   }
 

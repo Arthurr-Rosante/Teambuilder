@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import fetchData from '../utils/fetchData.js'
-import { TeamShape } from "../types";
-import '../styles/userMenu.css'
 import { NavLink } from "react-router-dom";
+import fetchData from '../utils/fetchData.js'
+import { TeamShape } from "../types.js";
+
+import '../styles/userMenu.css'
 
 function TeamPreview({ team }) {
   const [teamInfo, setTeamInfo] = useState(null);
@@ -54,8 +55,8 @@ function TeamPreview({ team }) {
   );
 }
 
-// TeamPreview.propTypes = {
-//   team: TeamShape.isRequired,
-// };
+TeamPreview.propTypes = {
+  team: TeamShape.isRequired,
+}
 
 export default TeamPreview;

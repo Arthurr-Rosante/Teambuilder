@@ -108,7 +108,7 @@ function TeamEdit() {
     const handleMemberAlter = async (name, index) => {
         try {
             const res = await fetchData(
-                `https://pokeapi.co/api/v2/pokemon/${name}`
+                `https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`
             );
 
             setTeamMembers(prevMembers => {
@@ -161,10 +161,10 @@ function TeamEdit() {
     };
 
     const handleFieldChange = (index, field, value) => {
-        setTeamMembers(prevTeam => {
-            const updatedTeam = [...prevTeam];
-            updatedTeam[index][field] = value;
-            return updatedTeam;
+        setTeamMembers(prevMembers => {
+            const updatedMembers = [...prevMembers];
+            updatedMembers[index][field] = value;
+            return updatedMembers;
         });
     };
 
@@ -227,7 +227,7 @@ function TeamEdit() {
             }))
 
             navigate("/home");
-            console.log('Time excluído com sucesso | ' + team);
+            console.log('Time excluído com sucesso');
         } catch (error) {
             console.error("Erro ao deletar o time: ", error.message);
         }
@@ -247,7 +247,9 @@ function TeamEdit() {
                             onChange={(e) => setTeamName(e.target.value)} />
                     </div>
                     {teamMembers.length < 6 && (
-                        <button onClick={(e) => addMember(e)}>Adicionar novo membro</button>
+                        <button onClick={(e) => addMember(e)}>
+                            Adicionar novo membro
+                        </button>
                     )}
                     <ul className='team-members'>
                         {teamMembers.map((member, index) => (
@@ -255,10 +257,10 @@ function TeamEdit() {
                                 <h3 className='member-name'>{index + 1}° Membro - {member.name}</h3>
                                 <div>
                                     <span onClick={() => toggleShiny(index)}>✨</span>
-                                    <img src={member.sprites ? member.sprites[member.is_shiny ? 1 : 0] : '/logo.png'} alt={member.name} />
+                                    <img src={member.sprites.length > 0 ? member.sprites[member.is_shiny ? 1 : 0] : '/logo.png'} alt={member.name} />
                                 </div>
                                 <div>
-                                    <label>Alterar Pokémon: </label>
+                                    <label>Pokémon: </label>
                                     <input
                                         type="text"
                                         value={member.searchTerm}

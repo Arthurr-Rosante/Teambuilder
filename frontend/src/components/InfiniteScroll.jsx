@@ -4,7 +4,6 @@ import { useInView } from "react-intersection-observer";
 import PokeCard from "./PokeCard.jsx";
 import PropTypes from "prop-types";
 import axios from "axios";
-import pkmData from '../data/pokemon.json'
 import '../styles/pokecard.css'
 
 

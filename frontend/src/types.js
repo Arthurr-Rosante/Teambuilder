@@ -1,25 +1,17 @@
 import PropTypes from "prop-types";
 
-const MoveShape = PropTypes.string;
-
 export const MemberShape = PropTypes.shape({
   name: PropTypes.string.isRequired,
-  is_shiny: PropTypes.bool,
+  is_shiny: PropTypes.bool.isRequired,
   item: PropTypes.string,
   ability: PropTypes.string.isRequired,
-  moves: PropTypes.arrayOf(MoveShape).isRequired,
+  moves: PropTypes.arrayOf(PropTypes.string).isRequired,
 });
 
 export const TeamShape = PropTypes.shape({
   name: PropTypes.string.isRequired,
   members: PropTypes.arrayOf(MemberShape).isRequired,
   user_OT: PropTypes.string.isRequired,
-});
-
-export const UserPropTypes = PropTypes.shape({
-  name: PropTypes.string.isRequired,
-  pfp: PropTypes.string.isRequired,
-  teams: PropTypes.arrayOf(TeamShape).isRequired,
 });
 
 export const EntryPropType = PropTypes.shape({

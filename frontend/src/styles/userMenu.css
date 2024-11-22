@@ -1,90 +1,49 @@
 #user-info {
-  margin-top: 1.5rem;
-  align-items: center;
-  justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
+  padding: 1rem 5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem 1rem;
 }
 
 #user-info > .user-profile {
+  text-transform: capitalize;
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   align-items: center;
 }
 
-#user-info > .user-profile > h2,
-#user-info > .user-teams > h2 {
-  font-size: 2.7rem;
+.user-profile > .user-pfp {
+  border-radius: 0.8rem;
+  margin: 0.2rem 0;
+  box-shadow: 2px 3px 5px var(--clr-grey);
 }
 
-#user-info > .user-profile > .user-pfp {
-  box-shadow: 1px 3px 10px var(--clr-light-blue);
-  border-radius: 1rem;
-}
-
-#user-info > .user-profile > .user-controllers {
+.user-profile > .user-controllers {
+  padding: 1rem;
   display: flex;
-  margin: 1rem;
-  column-gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-#user-info > .user-profile > .user-controllers > .btn-logout {
-  display: flex;
-  align-items: center;
-  column-gap: 0.2rem;
-  font-size: 16px;
+.user-profile > .user-controllers > button,
+.user-profile > .user-controllers > a > button {
+  background-color: #ff000050;
+  width: 100%;
   padding: 0.2rem 1.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
-
-#user-info > .user-profile > .user-controllers > .btn-create-team,
-#user-info > .user-profile > .user-controllers > .btn-return-home {
-  cursor: pointer;
-  border-radius: 0.5rem;
-  border: none;
-}
-
-#user-info > .user-profile > .user-controllers > .btn-create-team > a,
-#user-info > .user-profile > .user-controllers > .btn-return-home > a {
+  font-size: 14px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  column-gap: 0.2rem;
   text-decoration: none;
-  color: black;
-  font-size: 16px;
-  padding: 0.2rem 1.5rem;
+  color: var(--clr-black);
 }
-
-#user-info > .user-profile > .user-controllers > .btn-logout:hover {
-  color: var(--clr-white);
-  background-color: var(--clr-red);
-}
-
-#user-info > .user-profile > .user-controllers > .btn-create-team:hover {
-  background-color: var(--clr-green);
-}
-#user-info > .user-profile > .user-controllers > .btn-create-team:hover > a {
+.user-profile > .user-controllers > button:hover,
+.user-profile > .user-controllers > a:hover > button {
   color: var(--clr-white);
 }
 
-#user-info > .user-profile > .user-controllers > .btn-return-home:hover {
-  background-color: var(--clr-light-blue);
-}
-
-#user-info > .user-teams {
-  text-align: center;
-}
-
-#user-info > .user-teams > .user-teams-container {
-  text-align: center;
-  padding: 0.5rem;
-  height: 250px;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}
 
 /* Team Preview ------------------------------------------------------------- */
 .user-team {
