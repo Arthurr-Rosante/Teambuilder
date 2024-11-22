@@ -78,7 +78,7 @@ function TeamCreate() {
         if (!validateTeam(teamMembers)) return;
 
         try {
-            const team = {
+            const teamPayload = {
                 name: teamName || `${user.name}-Team-${user.teams.length}`,
                 user_OT: user._id,
                 members: teamMembers.map(({ name, ability, item, is_shiny, moves }) => ({
@@ -86,15 +86,21 @@ function TeamCreate() {
                 })),
             };
 
-            await axios.post(`http://localhost:5000/api/users/${user._id}/teams`, team);
+            const response = await axios.post(
+                `http://localhost:5000/api/users/${user._id}/teams`,
+                teamPayload
+            );
 
-            setUser(updatedUser => ({
-                ...updatedUser,
-                teams: [...updatedUser.teams, team]
+            // don't ask me
+            const createdTeam = response.data.response;
+
+            setUser(prevUser => ({
+                ...prevUser,
+                teams: [...prevUser.teams, createdTeam],
             }));
 
             navigate('/home');
-            console.log("Time criado:", team);
+            console.log("Time criado:", createdTeam);
         } catch (error) {
             console.error("Erro ao salvar o time:", error.message);
         }

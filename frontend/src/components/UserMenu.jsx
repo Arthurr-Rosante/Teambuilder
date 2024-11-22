@@ -2,10 +2,13 @@ import { NavLink } from 'react-router-dom'
 import { useUser } from '../contexts/UserContext.jsx';
 import TeamPreview from "./TeamPreview.jsx";
 
-
 function UserMenu() {
   const { user, logout } = useUser();
   const { name, pfp, teams } = user;
+
+  if (!user) {
+    return <p>Carregando...</p>;
+  }
 
   return (
     <div id="user-info">
@@ -33,9 +36,13 @@ function UserMenu() {
       <div className="user-teams">
         <h2>Seus times</h2>
         <div className="user-teams-container">
-          {teams.map((team) => (
-            <TeamPreview key={team._id} team={team} />
-          ))}
+          {teams ? (
+            teams.map((team, idx) => (
+              <TeamPreview key={idx} team={team} />
+            ))
+          ) : (
+            <p>Você ainda não possui times cadastrados.</p>
+          )}
         </div>
       </div>
     </div>

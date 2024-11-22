@@ -29,12 +29,20 @@ const teamSchema = new Schema(
           },
           moves: {
             type: [String],
-            validate: {
-              validator: function (v) {
-                return v.length <= 4;
+            validate: [
+              {
+                validator: function (v) {
+                  return v.length <= 4;
+                },
+                message: "A Pokémon can have a maximum of 4 moves.",
               },
-              message: "A Pokémon can have a maximum of 4 moves.",
-            },
+              {
+                validator: function (v) {
+                  return new Set(v).size === v.length;
+                },
+                message: "Moves must be unique.",
+              },
+            ],
           },
         },
       ],
