@@ -96,20 +96,21 @@
 }
 
 /* PokeCards ---------------------------------------------------------------- */
+
 .poke-card {
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.15),
-    10px 10px 20px rgba(255, 255, 255, 1) inset;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  padding: 20px;
+  border-radius: 1.5rem; 
+  padding: 20px 15px;
   text-align: center;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .poke-card:hover {
-  box-shadow: 12px 12px 24px rgba(0, 0, 0, 0.2),
-    -12px -12px 24px rgba(255, 255, 255, 1) inset;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   transform: translateY(-5px);
 }
 
@@ -118,9 +119,36 @@
   transform: scale(1.2) translateY(-10%);
 }
 
+.poke-card-span {
+  font-size: 0.9rem;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
 .poke-card-name {
+  font-size: 1.4rem;
+  font-weight: 700;
   text-transform: capitalize;
-  letter-spacing: 0.5px;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.poke-card-types {
+  display: flex;
+  justify-content: center;
+  gap: 8px; 
+}
+
+.poke-card-type {
+  padding: 5px 12px;
+  border-radius: 20px; 
+  font-size: 0.9rem;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  min-width: 71px; 
 }
 
 .poke-card-types {
@@ -133,9 +161,68 @@
 }
 
 .poke-card-type:nth-child(1):nth-last-child(2) {
-  border-radius: 0.5rem 0.5rem 0 0;
+  border-radius: 0.5rem;
 }
 
 .poke-card-type:nth-child(2):nth-last-child(1) {
-  border-radius: 0 0 0.5rem 0.5rem;
+  border-radius: 0.5rem;
 }
+
+.poke-card.type-bug {
+  background: linear-gradient(135deg, #87950d, #a8b820 80%);
+}
+.poke-card.type-dark {
+  background: linear-gradient(135deg, #392c20, #50433b 80%);
+}
+.poke-card.type-dragon {
+  background: linear-gradient(135deg, #6654c7, #7038f8 80%);
+}
+.poke-card.type-electric {
+  background: linear-gradient(135deg, #cc9619, #f8d030 80%);
+}
+.poke-card.type-fairy {
+  background: linear-gradient(135deg, #f2b1f2, #f4bdc9 80%);
+}
+.poke-card.type-fighting {
+  background: linear-gradient(135deg, #5f2315, #c03028 80%);
+}
+.poke-card.type-fire {
+  background: linear-gradient(135deg, #d12705, #f08030 80%);
+}
+.poke-card.type-flying {
+  background: linear-gradient(135deg, #657dd9, #a890f0 80%);
+}
+.poke-card.type-ghost {
+  background: linear-gradient(135deg, #3f3d6f, #705898 80%);
+}
+.poke-card.type-grass {
+  background: linear-gradient(135deg, #58a124, #78c850 80%);
+}
+.poke-card.type-ground {
+  background: linear-gradient(135deg, #c5a44a, #e0c068 80%);
+}
+.poke-card.type-ice {
+  background: linear-gradient(135deg, #6cd3f6, #c2fcfc 80%);
+}
+.poke-card.type-normal {
+  background: linear-gradient(135deg, #acaa99, #c6c6a7 80%);
+}
+.poke-card.type-poison {
+  background: linear-gradient(135deg, #692a69, #a040a0 80%);
+}
+.poke-card.type-psychic {
+  background: linear-gradient(135deg, #d3386c, #fa6994 80%);
+}
+.poke-card.type-rock {
+  background: linear-gradient(135deg, #9d873b, #b8a038 80%);
+}
+.poke-card.type-steel {
+  background: linear-gradient(135deg, #9797a7, #b8b8d0 80%);
+}
+.poke-card.type-water {
+  background: linear-gradient(135deg, #207bd1, #6890f0 80%);
+}
+
+
+
+
