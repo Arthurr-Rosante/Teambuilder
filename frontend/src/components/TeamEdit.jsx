@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Navigate } from 'react-router-dom'
 import { useUser } from '../contexts/UserContext';
 import axios from 'axios';
 
@@ -232,6 +232,14 @@ function TeamEdit() {
             console.error("Erro ao deletar o time: ", error.message);
         }
     }
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            return <Navigate to='/' />
+        }
+        return;
+    }, []);
 
     return (
         <div id='team-edit'>

@@ -4,17 +4,21 @@
   padding: 1rem 5rem;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem 1rem;
+  gap: 0.5rem 10rem;
 }
 
 #user-info > .user-profile {
   text-transform: capitalize;
   display: flex;
-  flex-direction: column;
+  text-align: center;
   align-items: center;
 }
 
-.user-profile > .user-pfp {
+.user-profile > div > h1 {
+  letter-spacing: 2px;
+}
+
+.user-profile > div > .user-pfp {
   border-radius: 0.8rem;
   margin: 0.2rem 0;
   box-shadow: 2px 3px 5px var(--clr-grey);
@@ -27,23 +31,56 @@
   gap: 0.5rem;
 }
 
+.user-controllers > a {
+  text-decoration: none;
+}
+
 .user-profile > .user-controllers > button,
 .user-profile > .user-controllers > a > button {
-  background-color: #ff000050;
   width: 100%;
-  padding: 0.2rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
   color: var(--clr-black);
+  cursor: pointer;
+  transition: background-color 100ms ease-in;
 }
-.user-profile > .user-controllers > button:hover,
-.user-profile > .user-controllers > a:hover > button {
+
+.btn-create-team,
+.btn-return-home,
+.btn-logout {
+  border-radius: 0.4rem;
+  border: none;
+}
+
+.btn-create-team > *,
+.btn-return-home > *,
+.btn-logout > * {
   color: var(--clr-white);
 }
 
+.btn-create-team {
+  background-color: var(--clr-green);
+}
+.btn-create-team:hover {
+  background-color: var(--clr-green_);
+}
+
+.btn-return-home {
+  background-color: var(--clr-red);
+}
+.btn-return-home:hover {
+  background-color: var(--clr-red_);
+}
+
+.btn-logout {
+  background-color: var(--clr-light-blue);
+}
+.btn-logout:hover {
+  background-color: var(--clr-blue);
+}
 
 /* Team Preview ------------------------------------------------------------- */
 .user-team {

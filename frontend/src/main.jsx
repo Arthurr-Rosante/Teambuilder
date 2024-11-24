@@ -11,7 +11,6 @@ import AuthForm from './pages/AuthForm.jsx';
 import ErrorPage from './pages/ErrorPage.jsx'
 import EntryPage from './pages/EntryPage.jsx'
 // COMPONENTS
-import RoutesProtector from './components/RoutesProtector.jsx';
 import TeamCreate from './components/TeamCreate.jsx';
 import TeamEdit from './components/TeamEdit.jsx';
 import InfiniteScroll from "./components/InfiniteScroll.jsx";
@@ -33,11 +32,9 @@ const router = createBrowserRouter([
       },
       {
         path: "home",
-        element: (
-          <RoutesProtector>
-            <Home />
-          </RoutesProtector>
-        ),
+        element:
+          <Home />
+        ,
         children: [
           {
             path: "",
@@ -45,19 +42,15 @@ const router = createBrowserRouter([
           },
           {
             path: "teams/create",
-            element: (
-              <RoutesProtector>
-                <TeamCreate />
-              </RoutesProtector>
-            )
+            element:
+              <TeamCreate />
+
           },
           {
             path: "teams/edit/:teamId",
-            element: (
-              <RoutesProtector>
-                <TeamEdit />
-              </RoutesProtector>
-            )
+            element:
+              <TeamEdit />
+
           }
         ]
       },

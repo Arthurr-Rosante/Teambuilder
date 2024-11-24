@@ -4,71 +4,95 @@
   margin: 0 auto;
 }
 
-#pokedex > h1,
-#pokedex > p {
+.pokedex-controllers {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--clr-red);
+  border: 1rem solid var(--clr-red_);
+  border-radius: 2rem 2rem 0 0;
+  padding: 1rem 5rem;
+}
+
+.pokedex-controllers > div > h1,
+.pokedex-controllers > div > p {
   text-align: center;
   text-transform: capitalize;
 }
 
-#pokedex > .search-container {
-  width: 50%;
+.pokedex-controllers > div > h1 {
+  color: var(--clr-white);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+
+.pokedex-controllers > div > p {
+  color: var(--clr-light-white);
+}
+
+.pokedex-controllers > .search-container {
+  width: 60%;
   margin: 0 auto;
   margin-top: 1rem;
-  text-align: center;
   display: flex;
   justify-content: center;
 }
 
-#pokedex > .search-container > input {
+.pokedex-controllers > .search-container > input {
   outline-style: none;
   border: 2px solid var(--clr-grey);
   border-right: none;
   border-radius: 1rem 0 0 1rem;
   padding: 0.2rem 0.5rem;
   font-size: 1.05rem;
+  width: 100%;
 }
-#pokedex > .search-container > button {
+.pokedex-controllers > .search-container > button {
   border: none;
   border: 2px solid var(--clr-grey);
   border-left: none;
   border-radius: 0 1rem 1rem 0;
-  padding: 0.2rem 0.5rem 0.2rem 0.2rem;
+  padding: 0.2rem 1.5rem 0.2rem 1.2rem;
   cursor: pointer;
   font-size: 1.05rem;
+  outline-style: none;
 }
 
-#pokedex > button[type="reset"] {
+.pokedex-controllers > button[type="reset"] {
   display: block;
   margin: 0 auto;
   margin-top: 1rem;
   border: none;
   border-radius: 0.4rem;
-  padding: 0.2rem 1.2rem;
+  padding: 0.5rem 2.5rem;
   cursor: pointer;
 }
 
-#pokedex > .search-container > button:hover,
-#pokedex > button[type="reset"]:hover,
+.pokedex-controllers > .search-container > button:hover,
+.pokedex-controllers > button[type="reset"]:hover,
 #results > button:hover {
-  background-color: var(--clr-red);
   color: white;
+  background-color: var(--clr-red_);
   transition: all 100ms linear;
 }
 
 /* Results ------------------------------------------------------------------ */
 #results {
-  margin-top: 1.5rem;
+  border: 1rem solid var(--clr-red_);
+  border-radius: 0 0 2rem 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem 2rem;
   justify-content: center;
+  padding-top: 1.5rem;
   padding-bottom: 5rem;
   position: relative;
 }
 
 #results > button {
+  color: white;
+  background-color: var(--clr-red);
   position: absolute;
-  border: 1px solid black;
+  border: 1px solid var(--clr-black);
   bottom: 0;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -98,15 +122,31 @@
 /* PokeCards ---------------------------------------------------------------- */
 
 .poke-card {
-  border-radius: 1.5rem; 
+  border-radius: 1.5rem;
   padding: 20px 15px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 10px; 
+  gap: 0.4rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   position: relative;
   overflow: hidden;
+  z-index: 1;
+}
+
+.poke-card-background-icon {
+  background-image: url("/pokeball-icon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.05;
+  width: 20rem;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 40%;
+  left: -65%;
+  transform: translateY(-50%) rotateZ(-15deg);
+  z-index: -1;
 }
 
 .poke-card:hover {
@@ -136,36 +176,33 @@
   letter-spacing: 1px;
 }
 
-.poke-card-types {
+/* .poke-card-types {
   display: flex;
   justify-content: center;
-  gap: 8px; 
-}
+  gap: 8px;
+} */
 
-.poke-card-type {
+/* .poke-card-type {
   padding: 5px 12px;
-  border-radius: 20px; 
+  border-radius: 0.5rem;
   font-size: 0.9rem;
   color: white;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-  min-width: 71px; 
-}
+  min-width: 4.5rem;
+} */
 
 .poke-card-types {
   list-style: none;
   color: #f5f3f3;
 }
-
 .poke-card-type:only-child {
   border-radius: 0.5rem;
 }
-
 .poke-card-type:nth-child(1):nth-last-child(2) {
-  border-radius: 0.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
-
 .poke-card-type:nth-child(2):nth-last-child(1) {
-  border-radius: 0.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
 }
 
 .poke-card.type-bug {
@@ -222,7 +259,3 @@
 .poke-card.type-water {
   background: linear-gradient(135deg, #207bd1, #6890f0 80%);
 }
-
-
-
-

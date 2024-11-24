@@ -13,8 +13,10 @@ function UserMenu() {
   return (
     <div id="user-info">
       <div className="user-profile">
-        <h2>Olá, {name ? name : "Treinador"}!</h2>
-        <img src={`/${pfp}`} alt={name + " profile"} className="user-pfp" />
+        <div>
+          <h1>Olá, {name ? name : "Treinador"}!</h1>
+          <img src={`/${pfp}`} alt={name + " profile"} className="user-pfp" />
+        </div>
         <div className="user-controllers">
           <NavLink to={'/home/teams/create'} >
             <button className="btn-create-team">

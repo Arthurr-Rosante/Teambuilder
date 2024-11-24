@@ -1,6 +1,6 @@
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import itemsData from '../data/items.json'
@@ -148,6 +148,14 @@ function TeamCreate() {
             console.error("Erro ao salvar o time:", error.message);
         }
     }
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            return <Navigate to='/' />
+        }
+        return;
+    }, []);
 
     return (
         <div id='team-create'>

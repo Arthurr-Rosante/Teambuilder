@@ -97,22 +97,26 @@ function InfiniteScroll({ btn }) {
 
   return (
     <div id="pokedex">
-      <h1>pokédex</h1>
-      <p>Busque por <b>Nome</b> ou <b>Id</b></p>
-      <div className="search-container">
-        <input
-          type="text"
-          id="inSearch"
-          value={nameOrId}
-          onChange={(e) => setNameOrId(e.target.value)}
-        />
-        <button onClick={handleSearch}>
-          <i className="bx bx-search-alt"></i>
+      <div className="pokedex-controllers">
+        <div>
+          <h1>pokédex</h1>
+          <p>Busque por <b>Nome</b> ou <b>Id</b></p>
+        </div>
+        <div className="search-container">
+          <input
+            type="text"
+            id="inSearch"
+            value={nameOrId}
+            onChange={(e) => setNameOrId(e.target.value)}
+          />
+          <button onClick={handleSearch}>
+            <i className="bx bx-search-alt"></i>
+          </button>
+        </div>
+        <button type="reset" onClick={handleReset}>
+          Redefinir
         </button>
       </div>
-      <button type="reset" onClick={handleReset}>
-        Redefinir
-      </button>
       <div id="results">
         {content}
         {btn && (
