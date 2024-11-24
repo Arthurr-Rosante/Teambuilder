@@ -1,0 +1,123 @@
+#landpage {
+  background-color: var(--clr-red_);
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.landpage-container {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--clr-white);
+  padding: 1rem 5rem;
+  width: 70vw;
+  height: 65vh;
+  box-shadow: 0 0 15px var(--clr-light-red);
+  border-radius: 1rem;
+}
+
+.landpage-container > .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.landpage-container > .navbar > h2 {
+  letter-spacing: 0.5px;
+  font-weight: 800;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.landpage-container > .navbar > h2 > a {
+  text-decoration: none;
+  color: var(--clr-red);
+}
+
+.landpage-container > .navbar > a > span {
+  display: flex;
+  align-items: center;
+  column-gap: 0.2rem;
+}
+
+.landpage-container > .navbar > a,
+.landpage-container > .hero > div > .hero-buttons > a {
+  padding: 0.8rem 1.6rem;
+  border-radius: 1rem;
+  background-color: var(--clr-light-red);
+  color: var(--clr-white);
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 150ms ease-in;
+}
+
+.landpage-container > .navbar > a:hover,
+.landpage-container > .navbar > a:hover,
+.landpage-container > .hero > div > .hero-buttons > a:hover {
+  background-color: var(--clr-red_);
+}
+
+.landpage-container > .hero {
+  position: relative;
+  bottom: -50%;
+  transform: translateY(-50%);
+}
+
+.landpage-container > .hero > div {
+  width: 40%;
+}
+
+.landpage-container > .hero > div > .hero-buttons {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.landpage-container > .hero > div > .hero-buttons > a:nth-of-type(2) {
+  padding: 0.8rem 2.4rem;
+}
+
+.landpage-container > .hero > div > h1 {
+  font-size: 3.5rem;
+  line-height: 3.5rem;
+  text-align: center;
+  color: var(--clr-red);
+  text-shadow: 0 0 4px var(--clr-light-red_);
+}
+
+.landpage-container > .hero > span {
+  font-weight: 900;
+  position: absolute;
+  z-index: -1;
+  color: var(--clr-yellow_);
+  font-size: 7rem;
+  user-select: none;
+}
+.landpage-container > .hero > span:nth-of-type(1) {
+  right: -6%;
+  top: -60%;
+}
+.landpage-container > .hero > span:nth-of-type(2) {
+    right: 4%;
+    top: -15%;
+}
+
+.landpage-container > .hero > span:nth-of-type(3) {
+    right: -6%;
+    top: 30%;
+}
+
+.landpage-container > .hero > img {
+  width: 30rem;
+  object-fit: contain;
+  position: absolute;
+  top: -50%;
+  right: -2%;
+  user-select: none;
+  z-index: 100;
+}
