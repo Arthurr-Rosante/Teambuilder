@@ -13,13 +13,32 @@
   /* ====== Color Scheme ====== */
   --clr-white: rgb(255, 255, 255);
   --clr-white_: rgba(255, 255, 255, 0.5);
+
   --clr-black: rgb(0, 0, 0);
   --clr-black_: rgba(0, 0, 0, 0.5);
+
   --clr-grey: rgb(150, 150, 150);
   --clr-grey_: rgb(36, 36, 36);
+
   --clr-red: rgb(189, 55, 54);
+  --clr-red_: rgb(149, 25, 25);
+  --clr-light-red: rgb(219, 90, 90);
+  --clr-light-red_: rgba(255, 0, 0, 0.05);
+
   --clr-light-blue: rgb(208, 220, 230);
+
   --clr-green: rgb(70, 186, 105);
+  --clr-green_: rgb(52, 134, 76);
+  --clr-light-green: rgb(188, 228, 209);
+  --clr-light-green_: rgb(222, 251, 233);
+  --clr-light-green__: rgba(188, 228, 209, 0.3);
+
+  --clr-yellow: rgb(252, 228, 93);
+  --clr-yellow_: rgba(252, 228, 93, 0.6);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -43,7 +62,7 @@ img {
 #error {
   user-select: none;
   position: absolute;
-  background-color: var(--clr-red);
+  background-color: var(--clr-red_);
   font-weight: 700;
   letter-spacing: 1px;
   color: white;

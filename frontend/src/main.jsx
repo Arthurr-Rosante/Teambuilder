@@ -11,9 +11,14 @@ import AuthForm from './pages/AuthForm.jsx';
 import ErrorPage from './pages/ErrorPage.jsx'
 import EntryPage from './pages/EntryPage.jsx'
 // COMPONENTS
+import RoutesProtector from './components/RoutesProtector.jsx';
 import TeamCreate from './components/TeamCreate.jsx';
 import TeamEdit from './components/TeamEdit.jsx';
 import InfiniteScroll from "./components/InfiniteScroll.jsx";
+import Landpage from './pages/Landpage.jsx';
+import RegisterForm from './pages/RegisterForm.jsx';
+import LoginForm from './pages/LoginForm.jsx';
+
 
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
@@ -23,8 +28,16 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path: "",
+        element: <Landpage />
+      },
+      {
         path: "home",
-        element: <Home />,
+        element: (
+          <RoutesProtector>
+            <Home />
+          </RoutesProtector>
+        ),
         children: [
           {
             path: "",
@@ -32,17 +45,33 @@ const router = createBrowserRouter([
           },
           {
             path: "teams/create",
-            element: <TeamCreate />
+            element: (
+              <RoutesProtector>
+                <TeamCreate />
+              </RoutesProtector>
+            )
           },
           {
             path: "teams/edit/:teamId",
-            element: <TeamEdit />
+            element: (
+              <RoutesProtector>
+                <TeamEdit />
+              </RoutesProtector>
+            )
           }
         ]
       },
       {
         path: "authenticate",
-        element: <AuthForm />
+        children: [
+          {
+            path: "register",
+            element: <RegisterForm />,
+          }, {
+            path: 'login',
+            element: <LoginForm />
+          }
+        ]
       },
       {
         path: "entry/:name",
