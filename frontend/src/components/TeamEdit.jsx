@@ -9,6 +9,8 @@ import validateTeam from '../utils/validateTeam.js'
 import pokemonData from '../data/pokemon.json';
 import itemsData from '../data/items.json';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 function TeamEdit() {
     const { teamId } = useParams();
     const { user, setUser } = useUser();
@@ -27,7 +29,7 @@ function TeamEdit() {
         const fetchExistingTeam = async () => {
             try {
                 const res = await fetchData(
-                    `http://localhost:5000/api/users/${user._id}/teams/${teamId}`
+                    `${BASE_URL}/api/users/${user._id}/teams/${teamId}`
                 );
 
 
@@ -191,7 +193,7 @@ function TeamEdit() {
             };
 
             const response = await axios.put(
-                `http://localhost:5000/api/users/${user._id}/teams/${teamId}`,
+                `${BASE_URL}/api/users/${user._id}/teams/${teamId}`,
                 teamPayload
             );
 
@@ -218,7 +220,7 @@ function TeamEdit() {
 
         try {
             await axios.delete(
-                `http://localhost:5000/api/users/${user._id}/teams/${teamId}`
+                `${BASE_URL}/api/users/${user._id}/teams/${teamId}`
             );
 
             setUser(prevUser => ({

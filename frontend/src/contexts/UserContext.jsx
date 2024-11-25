@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
@@ -39,7 +40,7 @@ export const UserProvider = ({ children }) => {
                 userData.name = name;
             }
 
-            const res = await axios.post("http://localhost:5000/api/auth/register", userData);
+            const res = await axios.post(`${BASE_URL}/api/auth/register`, userData);
             const token = res.data.token;
 
             localStorage.setItem('token', token);
@@ -70,7 +71,7 @@ export const UserProvider = ({ children }) => {
         try {
             setLoading(true);
             const res = await axios.post(
-                "http://localhost:5000/api/auth/login", { email, password }
+                `${BASE_URL}/api/auth/login`, { email, password }
             );
             const token = res.data.token;
 
@@ -106,6 +107,7 @@ export const UserProvider = ({ children }) => {
     };
 
     const fetchUser = async (initialCheck = false) => {
+
         const token = localStorage.getItem('token');
         if (!token || isTokenExpired(token)) {
             if (initialCheck) {
@@ -121,7 +123,7 @@ export const UserProvider = ({ children }) => {
 
         try {
             setLoading(true);
-            const res = await axios.get("http://localhost:5000/api/auth/user");
+            const res = await axios.get(`${BASE_URL}/api/auth/user`);
             setUser(res.data);
         } catch (error) {
             console.error("Erro ao buscar usuário:", error);

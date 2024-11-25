@@ -14,5 +14,5 @@ app.use("/api", routes);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  console.log(`Server rodando no endereço: https://localhost:${PORT}`);
+  console.log(`Server rodando no endereço: http://localhost:${PORT}`);
 });

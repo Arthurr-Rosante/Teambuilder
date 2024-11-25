@@ -83,6 +83,12 @@
 }
 
 /* Team Preview ------------------------------------------------------------- */
+.user-teams-container {
+  height: 240px;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
 .user-team {
   scroll-snap-align: center;
   background-color: var(--clr-white);
@@ -96,6 +102,12 @@
 
 .user-team > h3 {
   font-size: 16px;
+  text-align: center;
+  color: var(--clr-black);
+}
+
+.user-team > a {
+  text-decoration: none;
 }
 
 .team-container {
