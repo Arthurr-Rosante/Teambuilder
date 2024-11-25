@@ -29,7 +29,7 @@ function TeamPreview({ team }) {
   }, [team]);
 
   return (
-    <NavLink to={`/home/teams/edit/${team._id}`}>
+    <NavLink className='user-team-a' to={`/home/teams/edit/${team._id}`}>
       <div className="user-team">
         <h3>{team.name}</h3>
         <div className="team-container">

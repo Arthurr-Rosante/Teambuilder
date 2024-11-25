@@ -92,12 +92,23 @@
 .user-team {
   scroll-snap-align: center;
   background-color: var(--clr-white);
-  border-radius: 1rem;
+  border-radius: 0.8rem;
   width: 25rem;
   text-transform: capitalize;
   font-family: system-ui;
-  box-shadow: 1px 2px 5px var(--clr-grey_), 1px 2px 10px var(--clr-grey) inset;
+  box-shadow: 1px 2px 5px var(--clr-black_), 1px 2px 10px var(--clr-grey) inset;
   margin: 1rem;
+  transition: all 150ms linear;
+}
+
+.user-team:hover {
+  box-shadow: 1px 2px 5px var(--clr-red_), 1px 2px 10px var(--clr-red) inset;
+}
+
+.user-teams > h2 {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-align: center;
 }
 
 .user-team > h3 {
