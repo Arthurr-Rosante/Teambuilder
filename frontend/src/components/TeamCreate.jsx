@@ -7,6 +7,7 @@ import itemsData from '../data/items.json'
 import pkmData from '../data/pokemon.json'
 import fetchData from '../utils/fetchData';
 import validateTeam from '../utils/validateTeam';
+import '../styles/team.css';
 
 function TeamCreate() {
     const { user, setUser } = useUser();
@@ -158,122 +159,136 @@ function TeamCreate() {
     }, []);
 
     return (
-        <div id='team-create'>
-            <h1>Crie seu Time!</h1>
-            {teamMembers.length < 6 && (
-                <button onClick={addMember}>
-                    <i className='bx bx-plus'></i>
-                    Novo membro
-                </button>
-            )}
-            <form onSubmit={e => handleTeamSubmit(e)}>
-                <div>
-                    <label>Nome do Time: </label>
-                    <input
-                        type="text"
-                        value={teamName}
-                        onChange={e => setTeamName(e.target.value)} />
-                </div>
-                <ul>
-                    {teamMembers.length > 0 && (
-                        teamMembers.map((member, index) => (
-                            <li key={index}>
-                                <h3 className='member-name'>{index + 1}° Membro - {member.name}</h3>
-                                <div>
-                                    <span onClick={() => toggleShiny(index)}>✨</span>
-                                    <img src={member.sprites.length > 0 ? member.sprites[member.is_shiny ? 1 : 0] : '/logo.png'} alt={member.name} />
-                                </div>
-                                <div>
-                                    <label>Pokémon: </label>
-                                    <input
-                                        type="text"
-                                        value={member.searchTerm}
-                                        onChange={(e) => handleSearchTerm(index, e.target.value)}
-                                    />
-                                    {member.searchResults.length > 0 && (
-                                        <ul>
-                                            {member.searchResults.map((result, idx) => (
-                                                <li
-                                                    key={idx}
-                                                    onClick={() => handleMemberSelect(result, index)}>
-                                                    {result}
-                                                </li>
-                                            ))}
-                                        </ul>
+        <div id="team-create" className="team-create">
+        <h1 className="title">Crie seu Time!</h1>
+        {teamMembers.length < 6 && (
+            <button className="btn add-member" onClick={addMember}>
+                <i className="bx bx-plus"></i>
+                Novo membro
+            </button>
+        )}
+        <form className="form" onSubmit={(e) => handleTeamSubmit(e)}>
+            <div className="form-group">
+                <label className="label">Nome do Time: </label>
+                <input
+                    className="input-text"
+                    type="text"
+                    value={teamName}
+                    onChange={(e) => setTeamName(e.target.value)}
+                />
+            </div>
+            <ul className="team-members">
+                {teamMembers.length > 0 &&
+                    teamMembers.map((member, index) => (
+                        <li key={index} className="member">
+                            <h3 className="member-name">{index + 1}° Membro - {member.name}</h3>
+                            <div className="member-image">
+                                <span className="toggle-shiny" onClick={() => toggleShiny(index)}>✨</span>
+                                <img
+                                    className="sprite"
+                                    src={member.sprites.length > 0 ? member.sprites[member.is_shiny ? 1 : 0] : '/logo.png'}
+                                    alt={member.name}
+                                />
+                            </div>
+                            <div className="form-group">
+                                <label className="label">Pokémon: </label>
+                                <input
+                                    className="input-text"
+                                    type="text"
+                                    value={member.searchTerm}
+                                    onChange={(e) => handleSearchTerm(index, e.target.value)}
+                                />
+                                {member.searchResults.length > 0 && (
+                                    <ul className="search-results">
+                                        {member.searchResults.map((result, idx) => (
+                                            <li
+                                                key={idx}
+                                                className="search-result"
+                                                onClick={() => handleMemberSelect(result, index)}
+                                            >
+                                                {result}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                            <div className="form-group">
+                                <label className="label">Item:</label>
+                                <select
+                                    className="select"
+                                    value={member.item || ''}
+                                    onChange={(e) => handleFieldChange(index, "item", e.target.value)}
+                                >
+                                    <option value="" disabled />
+                                    {member.item && (
+                                        <option value={member.item}>{member.item}</option>
                                     )}
-                                </div>
-                                <div>
-                                    <label>Item:</label>
-                                    <select
-                                        value={member.item || ''}
-                                        onChange={(e) => handleFieldChange(
-                                            index, "item", e.target.value
-                                        )}>
-                                        <option value="" disabled />
-                                        {member.item && (
-                                            <option value={member.item}>
-                                                {member.item}
+                                    {Object.values(items)
+                                        .flat()
+                                        .filter((item) => item !== member.item)
+                                        .map((item, i) => (
+                                            <option key={i} value={item}>
+                                                {item}
                                             </option>
-                                        )}
-                                        {Object.values(items)
-                                            .flat()
-                                            .filter((item) => item !== member.item)
-                                            .map((item, i) => (
-                                                <option key={i} value={item}>
-                                                    {item}
-                                                </option>
-                                            ))}
-                                    </select>
-                                </div>
-                                <div>
-                                    <label>Habilidade:</label>
+                                        ))}
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <label className="label">Habilidade:</label>
+                                <select
+                                    className="select"
+                                    value={member.ability || ""}
+                                    onChange={(e) => handleFieldChange(index, "ability", e.target.value)}
+                                >
+                                    <option value="" disabled />
+                                    {member.ability && (
+                                        <option value={member.ability}>{member.ability}</option>
+                                    )}
+                                    {member.abilityList
+                                        .filter((ability) => ability !== member.ability)
+                                        .map((ability, i) => (
+                                            <option key={i} value={ability}>
+                                                {ability}
+                                            </option>
+                                        ))}
+                                </select>
+                            </div>
+                            <div className="form-group">
+                                <label className="label">Moveset:</label>
+                                {[...Array(4)].map((_, i) => (
                                     <select
-                                        value={member.ability || ""}
-                                        onChange={(e) => handleFieldChange(
-                                            index, "ability", e.target.value
-                                        )}
+                                        key={i}
+                                        className="select"
+                                        value={member.moves[i] || ''}
+                                        onChange={(e) => {
+                                            const newMoves = [...member.moves];
+                                            newMoves[i] = e.target.value;
+                                            handleFieldChange(index, 'moves', newMoves);
+                                        }}
                                     >
-                                        <option value="" disabled />
-                                        {member.ability && (
-                                            <option value={member.ability}>
-                                                {member.ability}
-                                            </option>)
-                                        }
-                                        {member.abilityList
-                                            .filter((ability) => ability !== member.ability)
-                                            .map((ability, i) => (
-                                                <option key={i} value={ability}>
-                                                    {ability}
-                                                </option>
-                                            ))}
+                                        <option value="" disabled>
+                                            {i + 1}° Move
+                                        </option>
+                                        {member.moveList.map((move, j) => (
+                                            <option key={j} value={move}>
+                                                {move}
+                                            </option>
+                                        )) || <option value="" />}
                                     </select>
-                                </div>
-                                <div>
-                                    <label>Moveset:</label>
-                                    {[...Array(4)].map((_, i) => (
-                                        <select
-                                            key={i}
-                                            value={member.moves[i] || ''}
-                                            onChange={(e) => {
-                                                const newMoves = [...member.moves];
-                                                newMoves[i] = e.target.value;
-                                                handleFieldChange(index, 'moves', newMoves)
-                                            }}>
-                                            <option value="" disabled>{i + 1}° Move</option>
-                                            {member.moveList.map((move, j) => (
-                                                <option key={j} value={move}>{move}</option>
-                                            )) || <option value='' />}
-                                        </select>
-                                    ))}
-                                </div>
-                                <button onClick={() => removeMember(index)}>Remover Membro</button>
-                            </li>
-                        ))
-                    )}
-                </ul>
-                <button type="submit">Criar Time</button>
-            </form>
-        </div>
+                                ))}
+                            </div>
+                            <button className="btn remove-member" onClick={() => removeMember(index)}>
+                                Remover Membro
+                            </button>
+                        </li>
+                    ))}
+            </ul>
+            <button type="submit" className="btn submit-team">
+                Criar Time
+            </button>
+        </form>
+    </div>
+    
     )
 }
 
