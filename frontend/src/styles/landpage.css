@@ -1,6 +1,108 @@
 #landpage {
   background-color: var(--clr-red_);
   width: 100vw;
+  min-height: 100vh;
+  padding: 2.5rem 0;
+}
+
+#landpage > * {
+  color: var(--clr-white);
+}
+
+.landpage-container {
+  padding: 1rem;
+  box-shadow: 0 0 2rem var(--clr-black_);
+  background-color: var(--clr-red);
+  border-radius: 1rem;
+  width: clamp(240px, 80%, 900px);
+  min-height: 380px;
+  margin: 0 auto;
+}
+
+.landpage-container > .navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  gap: 1rem;
+}
+
+.landpage-container > .navbar > h2 {
+  font-weight: 800;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.landpage-container > .navbar > h2 > a {
+  text-decoration: none;
+  color: var(--clr-yellow);
+}
+
+.landpage-container > .hero {
+  background-color: blue;
+  position: relative;
+  margin: 1.5rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.landpage-container > .hero > div {
+ background-color: red;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+.landpage-container > .hero > div > h1 {
+  text-align: center;
+  width: 80%;
+}
+
+.landpage-container > .hero > div > .hero-buttons {
+  padding: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.landpage-container > .hero > div > .hero-buttons > a {
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--clr-white);
+  background-color: var(--clr-red_);
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.landpage-container > .hero > div > .hero-buttons > a:hover {
+  background-color: var(--clr-light-red);
+}
+
+.landpage-container > .hero > span {
+  position: absolute;
+  display: none;
+}
+
+.landpage-container > .hero > .hero-img-container {
+  position: relative;
+  background-color: green;
+  width: clamp(10rem, 20rem, 50%);
+}
+
+.landpage-container > .hero > .hero-img-container > img {
+  position: absolute;
+  /* bottom: 0; */
+}
+
+/* #landpage {
+  background-color: var(--clr-red_);
+  width: 100vw;
   height: 100vh;
   position: relative;
 }
@@ -120,4 +222,4 @@
   right: -2%;
   user-select: none;
   z-index: 100;
-}
+} */
