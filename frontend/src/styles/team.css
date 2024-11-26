@@ -24,6 +24,7 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    min-width: 200px;
 }
 
 .btn:hover {
@@ -128,4 +129,32 @@
 .search-result:active {
     background-color: #e0e0e0;
     color: #0056b3;
+}
+
+
+.btn.add-member {
+    margin-bottom: 10px; 
+    background-color: #28a745; 
+}
+
+.btn.submit-team {
+    margin-bottom: 10px;
+}
+
+.btn.delete-team {
+    margin-top: 10px;
+}
+
+.btn.remove-member {
+    background-color: #ff4d4f; 
+    color: white; 
+    border: none; 
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn.remove-member:hover {
+    background-color: #d9363e;
 }
