@@ -1,16 +1,16 @@
-
 .title {
-    text-align: center;
-    color: #2c3e50;
+  text-align: center;
+  color: #2c3e50;
 }
 
-.team-create, .team-edit {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.team-create,
+.team-edit {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .btn {
@@ -28,107 +28,108 @@
 }
 
 .btn:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
 
 .form-group {
-    margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 
 .label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
-.input-text, .select {
-    width: calc(100% - 20px);
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    display: block;
+.input-text,
+.select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  display: block;
 }
 
 .team-members {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
 }
 
 .member {
-    margin: 10px 0;
-    padding: 15px;
-    background: #f1f1f1;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  margin: 10px 0;
+  padding: 15px;
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .member-name {
-    font-weight: bold;
-    color: #16a085;
-    margin-bottom: 10px;
+  font-weight: bold;
+  color: #16a085;
+  margin-bottom: 10px;
 }
 
 .member-image {
-    text-align: center;
-    margin-bottom: 10px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .sprite {
-    max-width: 100px;
-    border-radius: 8px;
+  max-width: 100px;
+  border-radius: 8px;
 }
 
 .toggle-shiny {
-    cursor: pointer;
-    font-size: 24px;
+  cursor: pointer;
+  font-size: 24px;
 }
 
 .btn.submit-team {
-    background-color: #007bff;
+  background-color: #007bff;
 }
 
 .btn.submit-team:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 .btn.delete-team {
-    background-color: #dc3545;
+  background-color: #dc3545;
 }
 
 .btn.delete-team:hover {
-    background-color: #c82333;
+  background-color: #c82333;
 }
 
 .search-results {
-    margin: 10px 0;
-    padding: 0;
-    list-style: none;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    max-height: 200px; 
-    overflow-y: auto; 
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .search-result {
-    padding: 10px 15px;
-    font-size: 16px;
-    color: #333;
-    cursor: pointer;
-    transition: background-color 0.2s, color 0.2s;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .search-result:hover {
-    background-color: #f0f0f0;
-    color: #007bff;
+  background-color: #f0f0f0;
+  color: #007bff;
 }
 
 .search-result:active {
-    background-color: #e0e0e0;
-    color: #0056b3;
+  background-color: #e0e0e0;
+  color: #0056b3;
 }
 
 

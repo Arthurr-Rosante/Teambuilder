@@ -9,6 +9,8 @@ import fetchData from '../utils/fetchData';
 import validateTeam from '../utils/validateTeam';
 import '../styles/team.css';
 
+const BASE_URL = import.meta.env.VITE_BASE_URL;
+
 function TeamCreate() {
     const { user, setUser } = useUser();
     const navigate = useNavigate();
@@ -132,7 +134,7 @@ function TeamCreate() {
             };
 
             const response = await axios.post(
-                `http://localhost:5000/api/users/${user._id}/teams`,
+                `${BASE_URL}/api/users/${user._id}/teams`,
                 teamPayload
             );
 
