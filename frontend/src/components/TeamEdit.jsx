@@ -368,7 +368,6 @@ function TeamEdit() {
                         ))}
                     </ul>
 
-                    {/* Botão para adicionar novo membro */}
                     {teamMembers.length < 6 && (
                         <button className="btn add-member" onClick={(e) => addMember(e)}>
                             Adicionar novo membro

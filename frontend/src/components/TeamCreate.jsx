@@ -203,7 +203,7 @@ function TeamCreate() {
                                             <li
                                                 key={idx}
                                                 className="search-result"
-                                                onClick={() => handleMemberAlter(result, index)}
+                                                onClick={() => handleMemberSelect(result, index)}
                                             >
                                                 {result}
                                             </li>
@@ -255,26 +255,26 @@ function TeamCreate() {
                             <div className="form-group">
                                 <label className="label">Moveset:</label>
                                 {[...Array(4)].map((_, i) => (
-                                    <select
-                                        key={i}
-                                        className="select"
-                                        value={member.moves[i] || ''}
-                                        onChange={(e) => {
-                                            const newMoves = [...member.moves];
-                                            newMoves[i] = e.target.value;
-                                            handleFieldChange(index, 'moves', newMoves);
-                                        }}
-                                    >
-                                        <option value="" disabled>
-                                            {i + 1}° Move
-                                        </option>
-                                        {member.moveList.map((move, j) => (
-                                            <option key={j} value={move}>
-                                                {move}
+                                        <select
+                                            key={i}
+                                            className="select"
+                                            value={member.moves[i] || ''}
+                                            onChange={(e) => {
+                                                const newMoves = [...member.moves];
+                                                newMoves[i] = e.target.value;
+                                                handleFieldChange(index, 'moves', newMoves);
+                                            }}
+                                        >
+                                            <option value="" disabled>
+                                                {i + 1}° Move
                                             </option>
-                                        )) || <option value="" />}
-                                    </select>
-                                ))}
+                                            {member.moveList.map((move, j) => (
+                                                <option key={j} value={move}>
+                                                    {move}
+                                                </option>
+                                            )) || <option value="" />}
+                                        </select>
+                                    ))}
                             </div>
                             <button className="btn remove-member" onClick={() => removeMember(index)}>
                                 Remover Membro
