@@ -134,7 +134,7 @@ export const UserProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        fetchUser(true);
+        fetchUser();
     }, []);
 
     return (

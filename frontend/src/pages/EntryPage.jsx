@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, NavLink } from 'react-router-dom'
 import fetchData from '../utils/fetchData.js'
 import '../styles/entry.css';
 
@@ -45,7 +45,12 @@ function EntryPage() {
 
     return (
         <div id='entry'>
-            <h1 className='entry-title'>{entry?.name}</h1>
+            <div className='title-container'>
+                <NavLink to='/home'>
+                    <i className='bx bxs-home'></i>
+                </NavLink>
+                <h1 className='entry-title'>{entry?.name}</h1>
+            </div>
 
             <div className='entry-info'>
                 <section className="entry-profile">
@@ -100,12 +105,13 @@ function EntryPage() {
                         {entry?.stats.map((stat) => (
                             <li key={stat.stat.name} className='entry-stat'>
                                 <p>{stat.stat.name}: {stat.base_stat}</p>
-                                    <div
-                                        id="stat-bar"
-                                        style={{
-                                            width: `${(stat.base_stat / 100) * 255}%`,
-                                        }}
-                                    />
+                                <div
+                                    id="stat-bar"
+                                    style={{
+                                        width: `clamp(100px, ${(stat.base_stat / 100) * 100}%, 100%)`,
+                                    }}
+
+                                />
                             </li>
                         ))}
                     </ul>

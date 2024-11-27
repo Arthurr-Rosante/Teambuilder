@@ -7,7 +7,6 @@ import './styles/index.css';
 // PAGES
 import App from './pages/App.jsx'
 import Home from './pages/Home.jsx'
-import AuthForm from './pages/AuthForm.jsx';
 import ErrorPage from './pages/ErrorPage.jsx'
 import EntryPage from './pages/EntryPage.jsx'
 // COMPONENTS

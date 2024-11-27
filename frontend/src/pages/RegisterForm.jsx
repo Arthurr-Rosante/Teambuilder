@@ -75,7 +75,9 @@ function RegisterForm() {
           </span>
         </div>
         <button type="submit" disabled={loading} className="auth-form__button">
-          Cadastrar-se
+          {loading ? (
+            <i className='bx bx-loader-alt'></i>
+          ) : "Cadastrar-se"}
         </button>
         <NavLink to='/'>
           voltar para

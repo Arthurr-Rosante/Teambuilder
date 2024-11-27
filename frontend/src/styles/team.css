@@ -14,17 +14,17 @@
 }
 
 .btn {
-    display: block;
-    margin: 10px auto;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    min-width: 200px;
+  display: block;
+  margin: 10px auto;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  min-width: 200px;
 }
 
 .btn:hover {
@@ -132,30 +132,29 @@
   color: #0056b3;
 }
 
-
 .btn.add-member {
-    margin-bottom: 10px; 
-    background-color: #28a745; 
+  margin-bottom: 10px;
+  background-color: #28a745;
 }
 
 .btn.submit-team {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .btn.delete-team {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .btn.remove-member {
-    background-color: #ff4d4f; 
-    color: white; 
-    border: none; 
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .btn.remove-member:hover {
-    background-color: #d9363e;
+  background-color: #d9363e;
 }

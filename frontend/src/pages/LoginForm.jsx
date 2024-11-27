@@ -66,7 +66,9 @@ function LoginForm() {
                     </span>
                 </div>
                 <button type="submit" disabled={loading} className="auth-form__button">
-                    Logar-se
+                    {loading ? (
+                        <i className='bx bx-loader-alt'></i>
+                    ) : "logar-se"}
                 </button>
                 <NavLink to='/'>
                     voltar para

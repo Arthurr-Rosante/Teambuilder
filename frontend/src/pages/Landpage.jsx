@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "../styles/landpage.css";
 
+
 function Landpage() {
   return (
     <div id="landpage">
@@ -20,9 +21,6 @@ function Landpage() {
           </h2>
         </div>
         <div className="hero">
-          <span>PIKACHU</span>
-          <span>PIKACHU</span>
-          <span>PIKACHU</span>
           <div>
             <h1>Monte seu Time Conosco!</h1>
             <div className="hero-buttons">
@@ -31,6 +29,9 @@ function Landpage() {
             </div>
           </div>
           <div className="hero-img-container">
+            <span>PIKACHU</span>
+            <span>PIKACHU</span>
+            <span>PIKACHU</span>
             <img
               className="hero-img"
               src="/pikachu-hero.webp"
